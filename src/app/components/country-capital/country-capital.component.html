@@ -1,0 +1,28 @@
+<div class="flex">
+  <div *ngFor="let capital of capitals; let i = index">
+    <button
+      [style.background-color]="capitalColor[i] ? '#0000ff' : ''"
+      [ngStyle]="{ 'background-color': capital.incorrect ? '#ff0000' : '' }"
+      (click)="changeCapitalColor(i); capitalSelected(capital)"
+    >
+      {{ capital.name }}
+    </button>
+  </div>
+  <div *ngIf="capitals.length > 0 && countries.length > 0">
+    |<br />
+    |<br />
+    |<br />
+  </div>
+  <div *ngFor="let country of countries; let i = index">
+    <button
+      [style.background-color]="countryColor[i] ? '#0000ff' : ''"
+      [ngStyle]="{ 'background-color': country.incorrect ? '#ff0000' : '' }"
+      (click)="changeCountryColor(i); countrySelected(country)"
+    >
+      {{ country.name }}
+    </button>
+  </div>
+  <h1 *ngIf="capitals.length === 0 && countries.length === 0">
+    Congratulations
+  </h1>
+</div>
