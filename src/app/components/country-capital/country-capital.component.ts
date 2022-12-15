@@ -77,8 +77,6 @@ export class CountryCapitalComponent implements OnInit {
   }
 
   checkIfCorrect(): void {
-    console.log(this.createdPair);
-
     if (this.createdPair.capital.length === 0) {
       this.capitals.forEach((x) => {
         x.incorrect = false;
